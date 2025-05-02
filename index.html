@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plano de Evolução – Judô</title>
+<style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f6f6f6;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(135deg, #6a1b9a, #4e342e, #000);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 1.8rem;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      font-weight: normal;
+    }
+    .progress-container {
+      margin: 20px auto 0;
+      padding: 0 20px;
+    }
+    .progress-bar {
+      height: 16px;
+      background: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0;
+      background: #4caf50;
+      transition: width 0.3s ease-in-out;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 20px;
+      flex: 1 1 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      width: 90%;
+      height: 90%;
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .modal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 0 20px;
+    }
+    section {
+      background: #fff;
+      border-radius: 1rem;
+      margin: 20px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    table {
+      width: 100%;
+      min-width: 400px;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+<div id="top" style="padding: 0 16px; max-width: 960px; margin: 0 auto;">
+<header>
+<h1>Bem-vindo, Matheus!</h1>
+<h2>Pronto para mais um passo rumo à faixa preta?</h2>
+</header>
+<div class="progress-container">
+<strong style="margin-left: 20px;">Progresso Geral</strong>
+<div class="progress-bar">
+<div class="progress-bar-fill" id="progressBarFill"></div>
+</div>
+</div>
+<div class="cards" style="font-family: 'Segoe UI', sans-serif; font-size: 1rem; font-weight: bold;">
+<div class="card" style="border-left: 6px solid #6a1b9a;"><a &gt;<="" a="" href="#" onclick="navigateTo('grupo1Go-Kyo')" style="font-size: 1rem; font-weight: bold;">Go-Kyo</a></div>
+<div class="card" style="border-left: 6px solid #4e342e;"><a &gt;<="" a="" href="#" onclick="navigateTo('nagekata1Kata')" style="font-size: 1rem; font-weight: bold;">Kata</a></div>
+<div class="card" style="border-left: 6px solid #000;"><a &gt;<="" a="" href="#" onclick="navigateTo('osaekomiTécnicas de Solo')" style="font-size: 1rem; font-weight: bold;">Técnicas de Solo</a></div>
+<div class="card" style="border-left: 6px solid #6a1b9a;"><a &gt;<="" a="" href="#" onclick="navigateTo('shimewazaEstrangulamentos')" style="font-size: 1rem; font-weight: bold;">Estrangulamentos</a></div>
+<div class="card" style="border-left: 6px solid #4e342e;"><a &gt;<="" a="" href="#" onclick="navigateTo('kansetsuwazaChaves de Braço')" style="font-size: 1rem; font-weight: bold;">Chaves de Braço</a></div>
+<div class="card" onclick="openModal('https://fpj.com.br/wp-content/uploads/2022/01/gestao-31.pdf" style="border-left: 6px solid #000;">📎 Links Úteis</div>
+</div>
+<div class="progress-container">
+<strong>Progresso Geral</strong>
+<div class="progress-bar">
+<div class="progress-bar-fill" id="progressBarFill"></div>
+</div>
+</div>
+<h1>Plano de Evolução até a Faixa Preta no Judô</h1>
+<section id="gokyo"><section id="grupo1">
+<details>
+<summary><strong>1º Grupo – Dai-Ikkyo</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="grupo1"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Deashi Harai</td><td><a href="https://www.youtube.com/results?search_query=Deashi+Harai+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>Hiza Guruma</td><td><a href="https://www.youtube.com/results?search_query=Hiza+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>Sasae Tsuri Komi Ashi</td><td><a href="https://www.youtube.com/results?search_query=Sasae+Tsuri+Komi+Ashi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>Uki Goshi</td><td><a href="https://www.youtube.com/results?search_query=Uki+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>O Goshi</td><td><a href="https://www.youtube.com/results?search_query=O+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>O Soto Gari</td><td><a href="https://www.youtube.com/results?search_query=O+Soto+Gari+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>O Uchi Gari</td><td><a href="https://www.youtube.com/results?search_query=O+Uchi+Gari+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+<tr><td>Seoi Nage</td><td><a href="https://www.youtube.com/results?search_query=Seoi+Nage+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo1" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section><section id="grupo2">
+<details>
+<summary><strong>2º Grupo – Dai-Nikyo</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="grupo2"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Koshi Guruma</td><td><a href="https://www.youtube.com/results?search_query=Koshi+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Tsuri Komi Goshi</td><td><a href="https://www.youtube.com/results?search_query=Tsuri+Komi+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Okuri Ashi Harai</td><td><a href="https://www.youtube.com/results?search_query=Okuri+Ashi+Harai+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Tai Otoshi</td><td><a href="https://www.youtube.com/results?search_query=Tai+Otoshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Harai Goshi</td><td><a href="https://www.youtube.com/results?search_query=Harai+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Uchi Mata</td><td><a href="https://www.youtube.com/results?search_query=Uchi+Mata+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Seoi Otoshi</td><td><a href="https://www.youtube.com/results?search_query=Seoi+Otoshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+<tr><td>Kosoto Gari</td><td><a href="https://www.youtube.com/results?search_query=Kosoto+Gari+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo2" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section><section id="grupo3">
+<details>
+<summary><strong>3º Grupo – Dai-Sankyo</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="grupo3"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Tsuri Goshi</td><td><a href="https://www.youtube.com/results?search_query=Tsuri+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Yoko Otoshi</td><td><a href="https://www.youtube.com/results?search_query=Yoko+Otoshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Ashi Guruma</td><td><a href="https://www.youtube.com/results?search_query=Ashi+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Hane Goshi</td><td><a href="https://www.youtube.com/results?search_query=Hane+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Harai Tsurikomi Ashi</td><td><a href="https://www.youtube.com/results?search_query=Harai+Tsurikomi+Ashi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Tomoe Nage</td><td><a href="https://www.youtube.com/results?search_query=Tomoe+Nage+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Kata Guruma</td><td><a href="https://www.youtube.com/results?search_query=Kata+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+<tr><td>Hane Makikomi</td><td><a href="https://www.youtube.com/results?search_query=Hane+Makikomi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo3" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section><section id="grupo4">
+<details>
+<summary><strong>4º Grupo – Dai-Yonkyo</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="grupo4"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Uchi Makikomi</td><td><a href="https://www.youtube.com/results?search_query=Uchi+Makikomi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Sukui Nage</td><td><a href="https://www.youtube.com/results?search_query=Sukui+Nage+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Utsuri Goshi</td><td><a href="https://www.youtube.com/results?search_query=Utsuri+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>O Guruma</td><td><a href="https://www.youtube.com/results?search_query=O+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Sumi Gaeshi</td><td><a href="https://www.youtube.com/results?search_query=Sumi+Gaeshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Tani Otoshi</td><td><a href="https://www.youtube.com/results?search_query=Tani+Otoshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Hane Goshi Gaeshi</td><td><a href="https://www.youtube.com/results?search_query=Hane+Goshi+Gaeshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+<tr><td>Osoto Guruma</td><td><a href="https://www.youtube.com/results?search_query=Osoto+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo4" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section><section id="grupo5">
+<details>
+<summary><strong>5º Grupo – Dai-Gokyo</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="grupo5"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>O Soto Makikomi</td><td><a href="https://www.youtube.com/results?search_query=O+Soto+Makikomi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Uchi Mata Sukashi</td><td><a href="https://www.youtube.com/results?search_query=Uchi+Mata+Sukashi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Harai Makikomi</td><td><a href="https://www.youtube.com/results?search_query=Harai+Makikomi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Tomoe Kata Guruma</td><td><a href="https://www.youtube.com/results?search_query=Tomoe+Kata+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Yoko Wakare</td><td><a href="https://www.youtube.com/results?search_query=Yoko+Wakare+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Yoko Guruma</td><td><a href="https://www.youtube.com/results?search_query=Yoko+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Ushiro Goshi</td><td><a href="https://www.youtube.com/results?search_query=Ushiro+Goshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+<tr><td>Ura Nage</td><td><a href="https://www.youtube.com/results?search_query=Ura+Nage+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="grupo5" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section></section><section id="nagekata1">
+<details>
+<summary><strong>Nage-no-Kata – Parte 1</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="nagekata1"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Uki Otoshi</td><td><a href="https://www.youtube.com/results?search_query=Uki+Otoshi+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="nagekata1" type="checkbox"/></td></tr>
+<tr><td>Ippon Seoi Nage</td><td><a href="https://www.youtube.com/results?search_query=Ippon+Seoi+Nage+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="nagekata1" type="checkbox"/></td></tr>
+<tr><td>Kata Guruma</td><td><a href="https://www.youtube.com/results?search_query=Kata+Guruma+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="nagekata1" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section>
+<section id="osaekomi">
+<details>
+<summary><strong>Osaekomi-waza (Imobilizações)</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="osaekomi"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Kesa Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kesa+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Kuzure Kesa Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kuzure+Kesa+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Ushiro Kesa Gatame</td><td><a href="https://www.youtube.com/results?search_query=Ushiro+Kesa+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Yoko Shiho Gatame</td><td><a href="https://www.youtube.com/results?search_query=Yoko+Shiho+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Kuzure Yoko Shiho Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kuzure+Yoko+Shiho+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Kami Shiho Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kami+Shiho+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Kuzure Kami Shiho Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kuzure+Kami+Shiho+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Tate Shiho Gatame</td><td><a href="https://www.youtube.com/results?search_query=Tate+Shiho+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Kata Gatame</td><td><a href="https://www.youtube.com/results?search_query=Kata+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Makura Kesa Gatame</td><td><a href="https://www.youtube.com/results?search_query=Makura+Kesa+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Ura Gatame</td><td><a href="https://www.youtube.com/results?search_query=Ura+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+<tr><td>Sankaku Gatame</td><td><a href="https://www.youtube.com/results?search_query=Sankaku+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="osaekomi" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section>
+<section id="shimewaza">
+<details>
+<summary><strong>Shime-waza (Estrangulamentos)</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="shimewaza"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Hadaka Jime</td><td><a href="https://www.youtube.com/results?search_query=Hadaka+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Okuri Eri Jime</td><td><a href="https://www.youtube.com/results?search_query=Okuri+Eri+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Kataha Jime</td><td><a href="https://www.youtube.com/results?search_query=Kataha+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Gyaku Jime</td><td><a href="https://www.youtube.com/results?search_query=Gyaku+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Nami Jime</td><td><a href="https://www.youtube.com/results?search_query=Nami+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Tsukkomi Jime</td><td><a href="https://www.youtube.com/results?search_query=Tsukkomi+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Sankaku Jime</td><td><a href="https://www.youtube.com/results?search_query=Sankaku+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Do Jime</td><td><a href="https://www.youtube.com/results?search_query=Do+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Sode Guruma Jime</td><td><a href="https://www.youtube.com/results?search_query=Sode+Guruma+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+<tr><td>Namijime/Kata Jime</td><td><a href="https://www.youtube.com/results?search_query=Namijime/Kata+Jime+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="shimewaza" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section>
+<section id="kansetsuwaza">
+<details>
+<summary><strong>Kansetsu-waza (Chaves de braço)</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" data-scope="kansetsuwaza"></div></div>
+<div class="table-wrapper">
+<table>
+<tr><th>Técnica</th><th>Link</th><th>Feito</th></tr>
+<tr><td>Juji Gatame</td><td><a href="https://www.youtube.com/results?search_query=Juji+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="kansetsuwaza" type="checkbox"/></td></tr>
+<tr><td>Ude Garami</td><td><a href="https://www.youtube.com/results?search_query=Ude+Garami+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="kansetsuwaza" type="checkbox"/></td></tr>
+<tr><td>Ude Hishigi Ude Gatame</td><td><a href="https://www.youtube.com/results?search_query=Ude+Hishigi+Ude+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="kansetsuwaza" type="checkbox"/></td></tr>
+<tr><td>Ude Hishigi Hiza Gatame</td><td><a href="https://www.youtube.com/results?search_query=Ude+Hishigi+Hiza+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="kansetsuwaza" type="checkbox"/></td></tr>
+<tr><td>Ude Hishigi Sankaku Gatame</td><td><a href="https://www.youtube.com/results?search_query=Ude+Hishigi+Sankaku+Gatame+judo" target="_blank">🔗 Ver vídeo</a></td><td><input data-scope="kansetsuwaza" type="checkbox"/></td></tr>
+</table>
+</div>
+</details>
+</section>
+<script>
+  function updateProgress(scope = null) {
+    const checkboxes = document.querySelectorAll(scope ? `input[data-scope="${scope}"]` : 'input[type="checkbox"];
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(c => c.checked).length;
+    const percent = total ? (checked / total) * 100 : 0;
+    const bar = scope ? document.querySelector(`.progress-bar-fill[data-scope="${scope}"]`) : document.getElementById("progressBarFill");
+    if (bar) bar.style.width = percent + "%";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"];
+    const scopes = [...new Set(Array.from(checkboxes).map(c => c.dataset.scope))];
+    checkboxes.forEach(chk => {
+      chk.addEventListener('change', () => {
+        updateProgress();
+        updateProgress(chk.dataset.scope);
+      });
+    });
+    updateProgress();
+    scopes.forEach(scope => updateProgress(scope));
+  });
+</script>
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close-btn" onclick="closeModal()">×</span>
+<iframe id="modalFrame" src=""></iframe>
+</div>
+</div>
+<script>
+  function updateProgress(scope = null) {
+    const checkboxes = document.querySelectorAll(scope ? `input[data-scope="${scope}"]` : 'input[type="checkbox"];
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(c => c.checked).length;
+    const percent = total ? (checked / total) * 100 : 0;
+    const bar = scope ? document.querySelector(`.progress-bar-fill[data-scope="${scope}"]`) : document.getElementById("progressBarFill");
+    if (bar) bar.style.width = percent + "%";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"];
+    const scopes = [...new Set(Array.from(checkboxes).map(c => c.dataset.scope))];
+    checkboxes.forEach(chk => {
+      chk.addEventListener('change', () => {
+        updateProgress();
+        updateProgress(chk.dataset.scope);
+      });
+    });
+    updateProgress();
+    scopes.forEach(scope => updateProgress(scope));
+  });
+
+  function openModal(url) {
+    document.getElementById('modalFrame.src = url;
+    document.getElementById('modal.style.display = 'flex';
+  }
+  function closeModal() {
+    document.getElementById('modal.style.display = 'none';
+    document.getElementById('modalFrame.src = '';
+  }
+</script>
+<section id="pontuacao">
+<details>
+<summary><strong>Pontuação para Faixa Preta (700 pontos)</strong></summary>
+<div class="progress-bar"><div class="progress-bar-fill" id="pontuacaoBar"></div></div>
+<div class="table-wrapper">
+<table id="pontuacaoTable">
+<thead>
+<tr><th>Categoria</th><th>Atividade</th><th>Pontos</th></tr>
+</thead>
+<tbody>
+<tr><td>Atividades Gerais</td><td>Arbitragem – Open SP</td><td><input class="input-pontos" min="0" type="number" value="0"/></td></tr>
+<tr><td>Módulos Obrigatórios</td><td>Curso de Arbitragem</td><td><input class="input-pontos" min="0" type="number" value="0"/></td></tr>
+<tr><td>Atividades Competitivas</td><td>Campeonato Regional</td><td><input class="input-pontos" min="0" type="number" value="0"/></td></tr>
+<tr><td>Ensino/Difusão</td><td>Oficina em Projeto Social</td><td><input class="input-pontos" min="0" type="number" value="0"/></td></tr>
+</tbody>
+</table>
+</div>
+<p style="text-align: center; margin-top: 10px;"><strong>Total: <span id="totalPontos">0</span> / 700 pontos</strong></p>
+</details>
+</section>
+</div>
+<script>
+  function navigateTo(targetId) {
+    const allDetails = document.querySelectorAll("details");
+    allDetails.forEach(d => d.removeAttribute("open"));
+
+    const section = document.getElementById(targetId);
+    if (section) {
+      const details = section.querySelector("details");
+      if (details) {
+        details.setAttribute("open", true);
+        details.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }
+
+  function updateProgress(scope = null) {
+    const checkboxes = document.querySelectorAll(scope ? `input[data-scope="${scope}"]` : 'input[type="checkbox"];
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(c => c.checked).length;
+    const percent = total ? (checked / total) * 100 : 0;
+    const bar = scope ? document.querySelector(`.progress-bar-fill[data-scope="${scope}"]`) : document.getElementById("progressBarFill");
+    if (bar) bar.style.width = percent + "%";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"];
+    const scopes = [...new Set(Array.from(checkboxes).map(c => c.dataset.scope))];
+    checkboxes.forEach(chk => {
+      chk.addEventListener('change', () => {
+        updateProgress();
+        updateProgress(chk.dataset.scope);
+      });
+    });
+    updateProgress();
+    scopes.forEach(scope => updateProgress(scope));
+  });
+
+  function openModal(url) {
+    document.getElementById('modalFrame.src = url;
+    document.getElementById('modal.style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal.style.display = 'none';
+    document.getElementById('modalFrame.src = '';
+  }
+</script>
+<script>
+  function calcularPontuacao() {
+    const inputs = document.querySelectorAll('.input-pontos');
+    let total = 0;
+    inputs.forEach((input, index) => {
+      const val = parseInt(input.value || 0);
+      total += val;
+      localStorage.setItem("ponto_" + index, val);
+    });
+    const barra = document.getElementById('pontuacaoBar');
+    const percentual = Math.min((total / 700) * 100, 100);
+    barra.style.width = percentual + '%';
+    document.getElementById('totalPontos').textContent = total;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const inputs = document.querySelectorAll('.input-pontos');
+    inputs.forEach((input, index) => {
+      const saved = localStorage.getItem("ponto_" + index);
+      if (saved !== null) input.value = saved;
+      input.addEventListener('input', calcularPontuacao);
+    });
+    calcularPontuacao();
+  });
+
+  function openModal(url) {
+    document.getElementById('modalFrame').src = url;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modalFrame').src = '';
+  }
+
+  function navigateTo(targetId) {
+    const allDetails = document.querySelectorAll("details");
+    allDetails.forEach(d => d.removeAttribute("open"));
+
+    const section = document.getElementById(targetId);
+    if (section) {
+      const details = section.querySelector("details");
+      if (details) {
+        details.setAttribute("open", true);
+        details.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  }
+</script>
+</body>
+</html>

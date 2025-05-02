@@ -1,0 +1,15 @@
+{
+  "name": "Plano de Jud\u00f4",
+  "short_name": "Jud\u00f4",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4e342e",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
